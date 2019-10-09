@@ -2272,7 +2272,7 @@ spec:
       containers:
         - name: contrail-operator
           # Replace this with the built image name
-          image: docker.pkg.github.com/michaelhenkel/contrail-operator-manifests/contrail-operator
+          image: docker.pkg.github.com/michaelhenkel/contrail-operator-manifests/contrail-operator:v0.0.1
           #command:
           #- contrail-operator
           imagePullPolicy: Always
