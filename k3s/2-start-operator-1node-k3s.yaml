@@ -23,7 +23,7 @@ spec:
             node-role.kubernetes.io/master: "true"
         serviceConfiguration:
           maxHeapSize: 1024M
-          minHeapSize: 100M
+          minHeapSize: 1024M
           images:
             cassandra: cassandra:3.11.4
             init: python:alpine
