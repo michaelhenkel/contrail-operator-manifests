@@ -22,11 +22,11 @@ spec:
           nodeSelector:
             node-role.kubernetes.io/master: "true"
         serviceConfiguration:
+          maxHeapSize: 1024M
+          minHeapSize: 100M
           images:
             cassandra: cassandra:3.11.4
             init: python:alpine
-            maxHeapSize: 1024M
-            minHeapSize: 100M
     zookeepers:
     - metadata:
         name: zookeeper1
