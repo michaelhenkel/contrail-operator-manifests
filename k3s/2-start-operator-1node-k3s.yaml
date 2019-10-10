@@ -22,8 +22,8 @@ spec:
           nodeSelector:
             node-role.kubernetes.io/master: "true"
         serviceConfiguration:
+          minHeapSize: 128M
           maxHeapSize: 1024M
-          minHeapSize: 1024M
           images:
             cassandra: cassandra:3.11.4
             init: python:alpine
@@ -99,8 +99,8 @@ spec:
             nodeinit: hub.juniper.net/contrail-nightly/contrail-node-init:1908.47
             init: python:alpine
           useKubeadmConfig: false
-          kubernetesAPIServer: "10.96.0.1"
-          kubernetesAPIPort: 443
+          kubernetesAPIServer: "127.0.0.1"
+          kubernetesAPIPort: 6443
           podSubnet: 10.32.0.0/12
           serviceSubnet: 10.96.0.0/12
           kubernetesClusterName: kubernetes
@@ -153,16 +153,18 @@ spec:
           contrail_cluster: cluster1
       spec:
         commonConfiguration:
-          create: false
+          create: true
           nodeSelector:
             node-role.kubernetes.io/master: "true"
         serviceConfiguration:
+          distribution: ubuntu
           nodeManager: false
           cassandraInstance: cassandra1
           controlInstance: control1
           images:
             vrouteragent: hub.juniper.net/contrail-nightly/contrail-vrouter-agent:1908.47
             vrouterkernelinit: hub.juniper.net/contrail-nightly/contrail-vrouter-kernel-init:1908.47
+            vrouterkernelbuildinit: hub.juniper.net/contrail-nightly/contrail-vrouter-kernel-build-init:1908.47
             vroutercni: hub.juniper.net/contrail-nightly/contrail-kubernetes-cni-init:1908.47
             nodemanager: hub.juniper.net/contrail-nightly/contrail-nodemgr:1908.47
             nodeinit: hub.juniper.net/contrail-nightly/contrail-node-init:1908.47
